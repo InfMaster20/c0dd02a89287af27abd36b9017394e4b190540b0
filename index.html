@@ -23,6 +23,7 @@
             {
                 font-family: 'Great Vibes', cursive;
                 font-size: 24vw;
+                margin-top: -2.5vw;
                 margin-bottom: -6vw;
             }
 
@@ -35,7 +36,7 @@
             .optional-font-2
             {
                 font-family: 'Amatic SC', cursive;
-                font-size: 4.5vw;
+                font-size: 3.6vw;
             }
 
             .rotated {
@@ -100,7 +101,6 @@
             //read url params
             var url_string = window.location;
             var url = new URL(url_string);
-            
             var text = url.searchParams.get("text");
             var name = url.searchParams.get("name");
             var day = url.searchParams.get("day");
@@ -114,23 +114,23 @@
 
             var date = new Date(month + " " + day + ", " + year + " 00:00:00").getTime();
             var func = setInterval(function() {
-                var currDateTime = new Date().getTime();
-                var diffDateTime = date - currDateTime;
+                    var currDateTime = new Date().getTime();
+                    var diffDateTime = date - currDateTime;
 
-                if (diffDateTime < 0) {
-                    clearInterval(func);
-                    document.getElementById("countdown").innerHTML = "DONE";
-                }
-                else
-                {
-                    var days = Math.floor(diffDateTime / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((diffDateTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((diffDateTime % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((diffDateTime % (1000 * 60)) / 1000);
+                    if (diffDateTime < 0) {
+                        clearInterval(func);
+                        document.getElementById("countdown").innerHTML = "DONE";
+                    }
+                    else
+                    {
+                        var days = Math.floor(diffDateTime / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((diffDateTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((diffDateTime % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((diffDateTime % (1000 * 60)) / 1000);
 
-                    document.getElementById("countdown").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten " + seconds + " Sekunden";
-                }
-        }, 1000);
+                        document.getElementById("countdown").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten " + seconds + " Sekunden";
+                    }
+                }, 1000);
         </script>
   </body>
 </html>
