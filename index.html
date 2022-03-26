@@ -83,7 +83,7 @@
                     <div class="white-bg shadow p-3 mb-5">
                         <div class="padding-box text-center">
                             <div>
-                                <div class="optional-font-2 text-center text-black-75">DU WIRST</div>
+                                <div id="text" class="optional-font-2 text-center text-black-75"></div>
                                 <div id="name" class="main-font text-center"></div>
                                 <div id="date" class="optional-font text-center text-black-75"></div>
                             </div>
@@ -100,12 +100,15 @@
             //read url params
             var url_string = window.location;
             var url = new URL(url_string);
+            
+            var text = url.searchParams.get("text");
             var name = url.searchParams.get("name");
             var day = url.searchParams.get("day");
             var month = url.searchParams.get("month");
             var year = url.searchParams.get("year");
 
             //set content
+            document.getElementById("text").innerHTML = text;
             document.getElementById("name").innerHTML = name;
             document.getElementById("date").innerHTML = day + " " + month + " " + year;
 
